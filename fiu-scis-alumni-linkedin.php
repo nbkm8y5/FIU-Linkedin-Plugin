@@ -112,10 +112,10 @@ function fslp_linkedin_authorization()
     $fslp_client_id = 'XXXXXXXXXXXXXX';
     $fslp_response_type = 'code';
     $fslp_state = 'YYYYYYYYYYYYYYYYYYYYYYYY';
-    $fslp_authorization_endpoint = 'https://www.linkedin.com/oauth/v2/authorization';
-    $fslp_redirect_uri = 'https://www.example.com/linkedin/';
+    $fslp_authorization_endpoint = esc_url('https://www.linkedin.com/oauth/v2/authorization');
+    $fslp_redirect_uri = esc_url('https://www.example.com/linkedin/');
 
-    echo "<a href='" . $fslp_authorization_endpoint . "?client_id=" . $fslp_client_id . "&redirect_uri=" . $fslp_redirect_uri . "&response_type=" . $fslp_response_type . "&state=" . $fslp_state . "'><button type='button' class='btn btn-primary'>Sign up with " . $fslp_api . "</button></a>";
+    echo esc_html("<a href='" . $fslp_authorization_endpoint . "?client_id=" . $fslp_client_id . "&redirect_uri=" . $fslp_redirect_uri . "&response_type=" . $fslp_response_type . "&state=" . $fslp_state . "'><button type='button' class='btn btn-primary'>Sign up with " . $fslp_api . "</button></a>");
 }
 
 /**
@@ -152,10 +152,10 @@ function fslp_linkedin_authorization_response()
 function fslp_linkedin_access_token_request_and_response($fslp_temp_code)
 {
 
-    $fslp_token_endpoint = 'https://www.linkedin.com/oauth/v2/accessToken';
+    $fslp_token_endpoint = esc_url('https://www.linkedin.com/oauth/v2/accessToken');
     $fslp_grant_type = 'authorization_code';
     $fslp_code = $fslp_temp_code;
-    $fslp_redirect_uri = 'https://www.example.com/linkedin/';
+    $fslp_redirect_uri = esc_url('https://www.example.com/linkedin/');
     $fslp_client_id = 'XXXXXXXXXXXXXX';
     $fslp_cs = 'ZZZZZZZZZZZZZZZZ';
 
